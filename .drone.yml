@@ -9,6 +9,7 @@ steps:
       CGO_ENABLED: 0
     commands:
       - apk add --no-cache git
+      - go generate
       - go build -ldflags "-w -s" -trimpath -o members .
       - tar zcf members.tar.gz members
 
