@@ -1,4 +1,5 @@
-build:
-	go generate
-	go build .
-	strip members
+build: test
+	go build -ldflags "-w -s" -trimpath .
+
+test:
+	go test -coverprofile members.coverage ./...
